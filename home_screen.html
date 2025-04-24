@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup - Tela Inicial</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .mockup {
+            max-width: 360px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .header {
+            background: linear-gradient(to bottom, #1E88E5, #1976D2);
+            color: white;
+            padding: 40px 20px 20px;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .header p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .header-actions {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            display: flex;
+        }
+        .header-actions .icon {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+        .quick-access {
+            padding: 20px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 15px;
+            color: #333;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .grid-item {
+            background-color: white;
+            border-radius: 12px;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .grid-item .icon-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        .grid-item p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .news {
+            padding: 0 20px 20px;
+        }
+        .news-item {
+            display: flex;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .news-image {
+            width: 80px;
+            height: 80px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .news-content {
+            padding: 12px;
+            flex: 1;
+        }
+        .news-title {
+            margin: 0 0 5px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+        .news-date {
+            margin: 0;
+            font-size: 12px;
+            color: #777;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .view-all {
+            font-size: 14px;
+            color: #1E88E5;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .events {
+            padding: 0 20px 20px;
+        }
+        .event-card {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .event-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(212, 175, 55, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .event-title {
+            margin: 0 0 8px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .event-details {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .bottom-nav {
+            display: flex;
+            border-top: 1px solid #eee;
+            background-color: white;
+        }
+        .nav-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+            color: #777;
+        }
+        .nav-item.active {
+            color: #D4AF37;
+        }
+        .nav-item p {
+            margin: 5px 0 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup">
+        <div class="header">
+            <h1>Cidade Conectada</h1>
+            <p>Bem-vindo ao aplicativo da sua cidade</p>
+            <div class="header-actions">
+                <div class="icon">🔔</div>
+                <div class="icon">👤</div>
+            </div>
+        </div>
+        
+        <div class="quick-access">
+            <h2 class="section-title">Acesso Rápido</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon-circle" style="background-color: rgba(30, 136, 229, 0.1);">
+                        <span style="color: #1E88E5; font-size: 24px;">🏛️</span>
+                    </div>
+                    <p>Secretarias</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon-circle" style="background-color: rgba(212, 175, 55, 0.1);">
+                        <span style="color: #D4AF37; font-size: 24px;">🚗</span>
+                    </div>
+                    <p>Transporte</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon-circle" style="background-color: rgba(229, 57, 53, 0.1);">
+                        <span style="color: #E53935; font-size: 24px;">⚠️</span>
+                    </div>
+                    <p>Denúncias</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon-circle" style="background-color: rgba(76, 175, 80, 0.1);">
+                        <span style="color: #4CAF50; font-size: 24px;">🛒</span>
+                    </div>
+                    <p>Marketplace</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon-circle" style="background-color: rgba(33, 150, 243, 0.1);">
+                        <span style="color: #2196F3; font-size: 24px;">🎁</span>
+                    </div>
+                    <p>Benefícios</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon-circle" style="background-color: rgba(255, 193, 7, 0.1);">
+                        <span style="color: #FFC107; font-size: 24px;">🔍</span>
+                    </div>
+                    <p>Busca</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news">
+            <div class="section-header">
+                <h2 class="section-title">Notícias</h2>
+                <a href="#" class="view-all">Ver todas</a>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-image">
+                    <span style="color: #777; font-size: 24px;">📰</span>
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">Prefeitura anuncia novo programa de incentivo ao comércio local</h3>
+                    <p class="news-date">Data: 22/04/2025</p>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-image">
+                    <span style="color: #777; font-size: 24px;">📰</span>
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">Campanha de vacinação contra a gripe começa na próxima semana</h3>
+                    <p class="news-date">Data: 21/04/2025</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="events">
+            <div class="section-header">
+                <h2 class="section-title">Eventos</h2>
+                <a href="#" class="view-all">Ver todos</a>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-icon">
+                    <span style="color: #D4AF37; font-size: 28px;">📅</span>
+                </div>
+                <h3 class="event-title">Feira de Artesanato</h3>
+                <p class="event-details">Praça Central - 25/04/2025 - 09:00</p>
+            </div>
+        </div>
+        
+        <div class="bottom-nav">
+            <div class="nav-item active">
+                <span style="font-size: 24px;">🏠</span>
+                <p>Início</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">🚗</span>
+                <p>Transporte</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">🛒</span>
+                <p>Marketplace</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">🎁</span>
+                <p>Benefícios</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">⚠️</span>
+                <p>Denúncias</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

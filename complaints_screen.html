@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup - Denúncias e Reclamações</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .mockup {
+            max-width: 360px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            height: 640px;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #1E88E5;
+            color: white;
+            padding: 16px;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .header-icon {
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            font-size: 20px;
+        }
+        .categories {
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+        }
+        .category-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 12px;
+            color: #333;
+        }
+        .category-scroll {
+            display: flex;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+        .category-item {
+            min-width: 80px;
+            height: 80px;
+            margin-right: 12px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .category-item.active {
+            background-color: #1E88E5;
+            color: white;
+        }
+        .category-icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .category-name {
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+        .complaint-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .complaint-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .complaint-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: rgba(30, 136, 229, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 20px;
+            color: #1E88E5;
+        }
+        .complaint-info {
+            flex: 1;
+        }
+        .complaint-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 4px;
+        }
+        .complaint-category {
+            font-size: 12px;
+            color: #777;
+            margin: 0;
+        }
+        .complaint-status {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-analyzing {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: #FF9800;
+        }
+        .status-forwarded {
+            background-color: rgba(33, 150, 243, 0.1);
+            color: #2196F3;
+        }
+        .status-resolved {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+        .complaint-description {
+            font-size: 14px;
+            color: #777;
+            margin: 0 0 12px;
+        }
+        .complaint-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .complaint-date {
+            font-size: 12px;
+            color: #777;
+        }
+        .details-button {
+            color: #1E88E5;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .details-icon {
+            margin-right: 4px;
+        }
+        .fab {
+            position: absolute;
+            bottom: 76px;
+            right: 16px;
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            background-color: #D4AF37;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .bottom-nav {
+            display: flex;
+            border-top: 1px solid #eee;
+            background-color: white;
+        }
+        .nav-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+            color: #777;
+        }
+        .nav-item.active {
+            color: #D4AF37;
+        }
+        .nav-item p {
+            margin: 5px 0 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup">
+        <div class="header">
+            <h1>Denúncias e Reclamações</h1>
+            <div class="header-icon">📋</div>
+        </div>
+        
+        <div class="categories">
+            <h2 class="category-title">Categorias</h2>
+            <div class="category-scroll">
+                <div class="category-item active">
+                    <div class="category-icon">📋</div>
+                    <div class="category-name">Todos</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🚧</div>
+                    <div class="category-name">Infraestrutura</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🔒</div>
+                    <div class="category-name">Segurança</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🏥</div>
+                    <div class="category-name">Saúde</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🚌</div>
+                    <div class="category-name">Transporte</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🌳</div>
+                    <div class="category-name">Meio Ambiente</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="complaint-card">
+                <div class="complaint-header">
+                    <div class="complaint-icon">🚧</div>
+                    <div class="complaint-info">
+                        <h3 class="complaint-title">Buraco na Rua das Flores</h3>
+                        <p class="complaint-category">Infraestrutura</p>
+                    </div>
+                    <div class="complaint-status status-analyzing">Em análise</div>
+                </div>
+                <p class="complaint-description">Existe um buraco grande na Rua das Flores, próximo ao número 123, causando risco de acidentes.</p>
+                <div class="complaint-footer">
+                    <span class="complaint-date">Data: 20/04/2025</span>
+                    <button class="details-button">
+                        <span class="details-icon">👁️</span>
+                        <span>Ver Detalhes</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="complaint-card">
+                <div class="complaint-header">
+                    <div class="complaint-icon">🔒</div>
+                    <div class="complaint-info">
+                        <h3 class="complaint-title">Falta de iluminação</h3>
+                        <p class="complaint-category">Segurança</p>
+                    </div>
+                    <div class="complaint-status status-forwarded">Encaminhado</div>
+                </div>
+                <p class="complaint-description">A praça central está com várias lâmpadas queimadas, tornando o local perigoso à noite.</p>
+                <div class="complaint-footer">
+                    <span class="complaint-date">Data: 18/04/2025</span>
+                    <button class="details-button">
+                        <span class="details-icon">👁️</span>
+                        <span>Ver Detalhes</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="complaint-card">
+                <div class="complaint-header">
+                    <div class="complaint-icon">🌳</div>
+                    <div class="complaint-info">
+                        <h3 class="complaint-title">Lixo acumulado</h3>
+                        <p class="complaint-category">Meio Ambiente</p>
+                    </div>
+                    <div class="complaint-status status-resolved">Resolvido</div>
+                </div>
+                <p class="complaint-description">Há lixo acumulado na esquina da Av. Principal com a Rua Secundária há mais de uma semana.</p>
+                <div class="complaint-footer">
+                    <span class="complaint-date">Data: 15/04/2025</span>
+                    <button class="details-button">
+                        <span class="details-icon">👁️</span>
+                        <span>Ver Detalhes</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="fab">+</div>
+        
+        <div class="bottom-nav">
+            <div class="nav-item">
+                <span style="font-size: 24px;">🏠</span>
+                <p>Início</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">🚗</span>
+                <p>Transporte</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">🛒</span>
+                <p>Marketplace</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">🎁</span>
+                <p>Benefícios</p>
+            </div>
+            <div class="nav-item active">
+                <span style="font-size: 24px;">⚠️</span>
+                <p>Denúncias</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

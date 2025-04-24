@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo Municipal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #1E88E5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .screens {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .screen-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 360px;
+            transition: transform 0.3s ease;
+        }
+        .screen-card:hover {
+            transform: translateY(-5px);
+        }
+        .screen-header {
+            background-color: #1E88E5;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .screen-content {
+            padding: 20px;
+            height: 500px;
+            overflow: hidden;
+        }
+        .screen-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 15px;
+        }
+        .nav-button {
+            background-color: #D4AF37;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: #C09C2C;
+        }
+        .nav-button.active {
+            background-color: #1E88E5;
+            color: white;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .screen-description {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border-left: 4px solid #1E88E5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aplicativo Municipal - Visualização Web</h1>
+        <p>Desenvolvido para Port Interdigital</p>
+    </header>
+
+    <div class="container">
+        <div class="nav-buttons">
+            <button class="nav-button active" onclick="showScreen('home')">Tela Inicial</button>
+            <button class="nav-button" onclick="showScreen('transport')">Transporte</button>
+            <button class="nav-button" onclick="showScreen('marketplace')">Marketplace</button>
+            <button class="nav-button" onclick="showScreen('benefits')">Benefícios</button>
+            <button class="nav-button" onclick="showScreen('complaints')">Denúncias</button>
+        </div>
+
+        <div id="screen-container" class="screens">
+            <!-- Conteúdo será carregado via JavaScript -->
+        </div>
+
+        <div id="screen-description" class="screen-description">
+            <!-- Descrição será carregada via JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Port Interdigital - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        // Definição das telas e suas descrições
+        const screens = {
+            home: {
+                title: 'Tela Inicial',
+                file: 'home_screen.html',
+                description: 'A tela inicial apresenta um acesso rápido a todas as funcionalidades do aplicativo, incluindo secretarias, transporte, denúncias, marketplace, benefícios e busca. Também exibe notícias recentes e eventos próximos da cidade.'
+            },
+            transport: {
+                title: 'Avaliação de Transporte',
+                file: 'transport_screen.html',
+                description: 'O sistema de avaliação de transporte permite visualizar, contatar e avaliar motoristas de mototáxi e carros de aplicativo. Os usuários podem ver as avaliações, ligar diretamente para os motoristas e adicionar novos prestadores de serviço.'
+            },
+            marketplace: {
+                title: 'Marketplace Local',
+                file: 'marketplace_screen.html',
+                description: 'O marketplace local apresenta estabelecimentos da região organizados por categorias como restaurantes, mercados, farmácias e outros. Os usuários podem contatar ou visitar os estabelecimentos diretamente pelo aplicativo.'
+            },
+            benefits: {
+                title: 'Clube de Benefícios',
+                file: 'benefits_screen.html',
+                description: 'O clube de benefícios oferece vantagens exclusivas para os usuários que compram na região. Inclui um sistema de pontos, níveis de fidelidade e benefícios como descontos, cashback e promoções especiais.'
+            },
+            complaints: {
+                title: 'Denúncias e Reclamações',
+                file: 'complaints_screen.html',
+                description: 'O sistema de denúncias permite que os cidadãos reportem problemas na cidade, como buracos nas ruas, falta de iluminação ou lixo acumulado. As denúncias são categorizadas e seu status pode ser acompanhado (em análise, encaminhado, resolvido).'
+            }
+        };
+
+        // Função para mostrar uma tela específica
+        function showScreen(screenId) {
+            // Atualiza botões de navegação
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`.nav-button[onclick="showScreen('${screenId}')"]`).classList.add('active');
+
+            // Carrega a tela selecionada
+            const screenInfo = screens[screenId];
+            const screenContainer = document.getElementById('screen-container');
+            
+            screenContainer.innerHTML = `
+                <div class="screen-card">
+                    <div class="screen-header">
+                        <h2>${screenInfo.title}</h2>
+                    </div>
+                    <div class="screen-content">
+                        <iframe src="${screenInfo.file}" title="${screenInfo.title}"></iframe>
+                    </div>
+                </div>
+            `;
+
+            // Atualiza a descrição
+            document.getElementById('screen-description').innerHTML = `
+                <h3>${screenInfo.title}</h3>
+                <p>${screenInfo.description}</p>
+            `;
+        }
+
+        // Inicializa com a tela inicial
+        document.addEventListener('DOMContentLoaded', () => {
+            showScreen('home');
+        });
+    </script>
+</body>
+</html>

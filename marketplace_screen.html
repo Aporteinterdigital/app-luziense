@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup - Marketplace Local</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .mockup {
+            max-width: 360px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            height: 640px;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #1E88E5;
+            color: white;
+            padding: 16px;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .header-icon {
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            font-size: 20px;
+        }
+        .categories {
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+        }
+        .category-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 12px;
+            color: #333;
+        }
+        .category-scroll {
+            display: flex;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+        .category-item {
+            min-width: 80px;
+            height: 80px;
+            margin-right: 12px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .category-item.active {
+            background-color: #1E88E5;
+            color: white;
+        }
+        .category-icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .category-name {
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .product-image {
+            height: 150px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-details {
+            padding: 16px;
+        }
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+            flex: 1;
+        }
+        .product-rating {
+            background-color: rgba(212, 175, 55, 0.2);
+            color: #D4AF37;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .product-rating-icon {
+            margin-right: 4px;
+        }
+        .product-description {
+            font-size: 14px;
+            color: #777;
+            margin: 0 0 8px;
+        }
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1E88E5;
+            margin: 0 0 12px;
+        }
+        .product-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .action-button {
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            margin-left: 12px;
+        }
+        .action-button.contact {
+            color: #1E88E5;
+        }
+        .action-button.visit {
+            background-color: #D4AF37;
+            color: black;
+            border-radius: 4px;
+        }
+        .action-icon {
+            margin-right: 4px;
+        }
+        .fab {
+            position: absolute;
+            bottom: 76px;
+            right: 16px;
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            background-color: #D4AF37;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .bottom-nav {
+            display: flex;
+            border-top: 1px solid #eee;
+            background-color: white;
+        }
+        .nav-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+            color: #777;
+        }
+        .nav-item.active {
+            color: #D4AF37;
+        }
+        .nav-item p {
+            margin: 5px 0 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup">
+        <div class="header">
+            <h1>Marketplace Local</h1>
+            <div class="header-icon">🔍</div>
+        </div>
+        
+        <div class="categories">
+            <h2 class="category-title">Categorias</h2>
+            <div class="category-scroll">
+                <div class="category-item active">
+                    <div class="category-icon">📱</div>
+                    <div class="category-name">Todos</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🍽️</div>
+                    <div class="category-name">Restaurantes</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🛒</div>
+                    <div class="category-name">Mercados</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">💊</div>
+                    <div class="category-name">Farmácias</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🔧</div>
+                    <div class="category-name">Serviços</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">👕</div>
+                    <div class="category-name">Vestuário</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="product-card">
+                <div class="product-image">
+                    <span style="font-size: 40px;">🍽️</span>
+                </div>
+                <div class="product-details">
+                    <div class="product-header">
+                        <h3 class="product-name">Restaurante do João</h3>
+                        <div class="product-rating">
+                            <span class="product-rating-icon">⭐</span>
+                            <span>4.7</span>
+                        </div>
+                    </div>
+                    <p class="product-description">Comida caseira com o melhor tempero da região</p>
+                    <p class="product-price">A partir de R$ 15,90</p>
+                    <div class="product-actions">
+                        <button class="action-button contact">
+                            <span class="action-icon">📞</span>
+                            <span>Contatar</span>
+                        </button>
+                        <button class="action-button visit">
+                            <span class="action-icon">🛒</span>
+                            <span>Visitar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <span style="font-size: 40px;">🛒</span>
+                </div>
+                <div class="product-details">
+                    <div class="product-header">
+                        <h3 class="product-name">Mercado Bom Preço</h3>
+                        <div class="product-rating">
+                            <span class="product-rating-icon">⭐</span>
+                            <span>4.5</span>
+                        </div>
+                    </div>
+                    <p class="product-description">Ofertas diárias em frutas, verduras e muito mais</p>
+                    <p class="product-price">Confira as ofertas</p>
+                    <div class="product-actions">
+                        <button class="action-button contact">
+                            <span class="action-icon">📞</span>
+                            <span>Contatar</span>
+                        </button>
+                        <button class="action-button visit">
+                            <span class="action-icon">🛒</span>
+                            <span>Visitar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="fab">+</div>
+        
+        <div class="bottom-nav">
+            <div class="nav-item">
+                <span style="font-size: 24px;">🏠</span>
+                <p>Início</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">🚗</span>
+                <p>Transporte</p>
+            </div>
+            <div class="nav-item active">
+                <span style="font-size: 24px;">🛒</span>
+                <p>Marketplace</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">🎁</span>
+                <p>Benefícios</p>
+            </div>
+            <div class="nav-item">
+                <span style="font-size: 24px;">⚠️</span>
+                <p>Denúncias</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
